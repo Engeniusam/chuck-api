@@ -43,7 +43,7 @@ const JokeCategory = ({ randomJoke, category }) => {
           </div>
           <div className="jokeCategory__column2">
             <Button onClick={getJoke} className="joke__btn">
-              Generate Joke
+              Get Joke
             </Button>
           </div>
         </div>
