@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button } from "@mui/material";
 import SelectedCategory from "./SelectedCategory.js";
 import "./JokeCategory.css";
-import axios from "axios";
 
 const JokeCategory = ({ randomJoke, category }) => {
   const [categorySelected, setCategorySelected] = useState("");
@@ -15,11 +14,11 @@ const JokeCategory = ({ randomJoke, category }) => {
   const getJoke = () => {
     if (!categorySelected.length > 0 || categorySelected === "random") {
       setCategorySelected("random");
-      axios("https://api.chucknorris.io/jokes/random")
+      fetch("https://api.chucknorris.io/jokes/random")
         .then((response) => response.json())
         .then((newJoke) => setNewJoke(newJoke.value));
     } else {
-      axios(
+      fetch(
         `https://api.chucknorris.io/jokes/random?category=${categorySelected}`
       )
         .then((response) => response.json())

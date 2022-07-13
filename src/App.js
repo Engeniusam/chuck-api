@@ -5,7 +5,6 @@ import "./App.css";
 import JokeList from "./JokeList.js";
 import JokeCategory from "./JokeCategory.js";
 import ChuckWelcome from "./ChuckWelcome.js";
-import axios from "axios";
 export class App extends Component {
   constructor() {
     super();
@@ -17,7 +16,7 @@ export class App extends Component {
   }
 
   componentDidMount() {
-    axios("https://api.chucknorris.io/jokes/categories")
+    fetch("https://api.chucknorris.io/jokes/categories")
       .then((response) => response.json())
       .then((cate) => this.setState({ category: cate }));
   }
